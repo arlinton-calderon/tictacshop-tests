@@ -1,0 +1,17 @@
+[1106/210407.008:ERROR:process_reader_win.cc(151)] SuspendThread: Acceso denegado. (0x5)
+[1106/210407.009:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[1106/210407.031:ERROR:exception_snapshot_win.cc(99)] thread ID 12056 not found in process
+[1106/210407.036:ERROR:process_reader_win.cc(151)] SuspendThread: Acceso denegado. (0x5)
+[1106/210407.036:ERROR:process_reader_win.cc(151)] SuspendThread: Acceso denegado. (0x5)
+[1106/210407.037:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[1106/210407.037:ERROR:exception_snapshot_win.cc(99)] thread ID 14116 not found in process
+[1106/210407.050:ERROR:process_reader_win.cc(151)] SuspendThread: Acceso denegado. (0x5)
+[1106/210407.050:ERROR:process_reader_win.cc(151)] SuspendThread: Acceso denegado. (0x5)
+[1106/210407.050:ERROR:process_reader_win.cc(151)] SuspendThread: Acceso denegado. (0x5)
+[1106/210407.050:ERROR:process_reader_win.cc(151)] SuspendThread: Acceso denegado. (0x5)
+[1106/210407.050:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[1106/210407.050:ERROR:exception_snapshot_win.cc(99)] thread ID 18388 not found in process
+[1106/225058.953:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[1106/225058.954:ERROR:exception_snapshot_win.cc(99)] thread ID 17828 not found in process
+[1106/225058.964:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[1106/225058.964:ERROR:exception_snapshot_win.cc(99)] thread ID 13832 not found in process
