@@ -40,7 +40,7 @@ class TestSuite:
 
         for test_case in self.tests_cases:
             with test_case.run() as p:
-                print(f'Test case ${test_case.name} started')
+                print(f'Test case {test_case.name} started')
 
                 try:
                     stdout, stderr = p.communicate()
@@ -52,12 +52,12 @@ class TestSuite:
                 output = str(stdout, encoding='iso8859-1') if stdout else None
 
                 if retcode or (output and '| FAIL |' in output):
-                    print(f'Test case ${test_case.name} failed')
+                    print(f'Test case {test_case.name} failed')
                     if output:
                         print(output)
                     return
 
-                print(f'Test case ${test_case.name} finished')
+                print(f'Test case {test_case.name} finished')
         
         print(f'Test suite {self.name} started')
                 
@@ -117,9 +117,7 @@ class IndexView(TemplateView):
 
                 response.context_data[key] = message.message
                 response.context_data['has_message'] = True
-            
-            print(response.context_data)
-            
+
             return response
         
         context = {}
@@ -132,14 +130,14 @@ class IndexView(TemplateView):
                 test_case = suite.test_case(name=test_case_name)
                 if test_case:
                     test_case.run()
-                    messages.add_message(request, messages.INFO,  f'Test case "{suite.name.capitalize()}" executed')
+                    messages.add_message(request, messages.INFO,  f'Caso de prueba "{suite.name.capitalize()}" ejecutado')
                 else:
-                    messages.add_message(request, messages.ERROR, f'Test case not found "{test_case_name}"')
+                    messages.add_message(request, messages.ERROR, f'Caso de prueba "{test_case_name.upper()}" no encontrado')
             else:
                 suite.run()
-                messages.add_message(request, messages.INFO, f'Test suite "{suite.name.capitalize()}" executed')
+                messages.add_message(request, messages.INFO, f'Suite de pruebas "{suite.name.capitalize()}" ejecutada')
         else:
-            messages.add_message(request, messages.ERROR, f'Test suite not found "{suite_name}"')
+            messages.add_message(request, messages.ERROR, f'Suite de pruebas "{suite_name.upper()}" no encontrada')
 
         return redirect(request.path)
 
