@@ -77,7 +77,8 @@ class TestCase:
         with open(self.file, mode='r+', encoding='utf-8') as f:
             while line := f.readline():
                 if re.match(r'\*\*\* Test Cases \*\*\*\n', line):
-                    line = f.readline()
+                    while (line := f.readline()) and line.isspace():
+                        pass
                     break
 
             if line and (match := re.match(r'(?:\w+) (.+)\n?', line)):
