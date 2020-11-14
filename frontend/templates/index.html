@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block head_content %}
+    <title>Administracion de casos prueba</title>
+{% endblock %}
+
+{% block container %}
+    <center>
+        <h4 class="mdc-typography--headline4 page-title">Administracion de casos prueba</h4>
+    </center>
+
+    <div class="test-suites-container">
+        {% for suite in suites %}
+            <div class="test-suite">
+                <a href="?suite={{ suite.name }}">
+                    <h6 class="mdc-typography--headline6 test-suite__title">{{ suite.name|title }}</h6>
+                </a>
+                <ul class="mdc-list">
+                    {% for test_case in suite.tests_cases %}
+                        <a href="?suite={{ suite.name }}&test_case={{ test_case.name }}">
+                            <li class="mdc-list-item mdc-ripple-upgraded test-case">
+                                <span class="mdc-list-item__ripple"></span>
+                                    <span class="mdc-list-item__text">{{ test_case.name|upper }}</span>
+                                <span class="mdc-list-item__meta material-icons" aria-hidden="true">launch</span>
+                            </li>
+                        </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if error %}
+        <div class="mdc-snackbar mdc-snackbar--leading">
+            <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+                <div class="mdc-snackbar__label" aria-atomic="false">{{ error }}</div>
+            </div>
+        </div>
+    {% elif info %}
+        <div class="mdc-snackbar mdc-snackbar--leading">
+            <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+                <div class="mdc-snackbar__label" aria-atomic="false">{{ info }}</div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if has_message %}
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', () => {
+                mdc.snackbar.MDCSnackbar.attachTo(document.querySelector('.mdc-snackbar')).open()
+            });
+        </script>
+    {% endif %}
+{% endblock %}

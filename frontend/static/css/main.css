@@ -1,0 +1,36 @@
+* {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+a {
+    text-decoration: none;
+}
+
+.page-title {
+    padding: 1.5rem;
+}
+
+.test-suites-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.5rem;
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+}
+
+.test-suite {
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 4px;
+}
+
+.test-suite__title {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    text-decoration: underline;
+}
