@@ -5,11 +5,11 @@ from django.shortcuts import redirect
 
 from typing import List, Optional, Tuple
 from pathlib import Path
-from functools import partial
 
 import pathlib
 import subprocess
 import threading
+import re
 
 
 class TestSuite:
@@ -71,6 +71,19 @@ class TestCase:
     @property
     def name(self) -> str:
         return self.file.stem
+
+    @property
+    def title(self) -> str:
+        with open(self.file, mode='r+', encoding='utf-8') as f:
+            while line := f.readline():
+                if re.match(r'\*\*\* Test Cases \*\*\*\n', line):
+                    while (line := f.readline()) and line.isspace():
+                        pass
+                    break
+
+            if line and (match := re.match(r'(?:\w+) (.+)\n?', line)):
+                return match.group(1)
+            return ''
     
     def run(self) -> subprocess.Popen:
         batch_file = str(settings.BASE_DIR / 'clear_run.bat')
