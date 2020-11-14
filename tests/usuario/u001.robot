@@ -33,7 +33,7 @@ U001 Crear un usuario.
     sleep   ${LONG DELAY}
     Capture Page Screenshot     Part_{index}.png
     sleep   ${LONG DELAY}
-    input text  name:username   David10
+    input text  name:username   David100
     sleep   ${LONG DELAY}
     Capture Page Screenshot     Part_{index}.png
     sleep   ${LONG DELAY}
