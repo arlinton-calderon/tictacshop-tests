@@ -12,15 +12,22 @@
     <div class="test-suites-container">
         {% for suite in suites %}
             <div class="test-suite">
-                <a href="?suite={{ suite.name }}">
-                    <h6 class="mdc-typography--headline6 test-suite__title">{{ suite.name|title }}</h6>
+                <a href="?suite={{ suite.name }}"
+                    title='Ejecutar suite de pruebas "{{ suite.name.capitalize }}"'>
+                    <h6 class="mdc-typography--headline6 test-suite__title">{{ suite.name.capitalize }}</h6>
                 </a>
                 <ul class="mdc-list">
                     {% for test_case in suite.tests_cases %}
-                        <a href="?suite={{ suite.name }}&test_case={{ test_case.name }}">
+                        <a href="?suite={{ suite.name }}&test_case={{ test_case.name }}"
+                            title='Ejecutar caso de prueba "{{ test_case.name|upper }}"' >
                             <li class="mdc-list-item mdc-ripple-upgraded test-case">
                                 <span class="mdc-list-item__ripple"></span>
-                                    <span class="mdc-list-item__text">{{ test_case.name|upper }}</span>
+                                <span class="mdc-list-item__text">
+                                    <span class="mdc-list-item__primary-text">{{ test_case.name|upper }}</span>
+                                    {% if test_case.title %}
+                                        <span class="mdc-list-item__secondary-text">{{ test_case.title }}</span>
+                                    {% endif %}
+                                </span>
                                 <span class="mdc-list-item__meta material-icons" aria-hidden="true">launch</span>
                             </li>
                         </a>
